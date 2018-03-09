@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Fblogin from "../../ui/Fblogin"
-
+import SearchBar from "../../ui/SearchBar";
 class App extends Component {
     constructor(props) {
         super(props);
@@ -32,7 +32,7 @@ class App extends Component {
 
 
     render() {
-        return (<Fblogin />);
+        return (<div><Fblogin /><SearchBar /></div>);
     }
 }
 

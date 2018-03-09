@@ -7,5 +7,7 @@ Meteor.methods({
     "tokens.insert"(token,type){
         return Tokens.insert({token,type});
     },
-    
+    "token.getLongToken"(type){
+        return Tokens.findOne({type});
+    },
 })

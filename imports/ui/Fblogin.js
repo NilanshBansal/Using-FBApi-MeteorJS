@@ -1,6 +1,5 @@
 import React from "react";
 import { Component } from "react";
-
 class Fblogin extends Component {
     constructor(props) {
         super(props);

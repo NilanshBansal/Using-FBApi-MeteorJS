@@ -32,7 +32,7 @@ export default class SearchBar extends Component{
             }
         })
     }
-    async getPages(){
+    getPages(){
         console.log(this.state.search);
         // let longToken= await this.getLongToken();
         // console.log(longToken);

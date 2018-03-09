@@ -6,6 +6,17 @@ class Fblogin extends Component{
         super(props);
         this.state={auth:false,token:""};
     }
+    saveToken(){
+        Meteor.call("tokens.insert",this.state.token,"short",(err,res)=>{
+            if(err){
+                console.log("err : ",err);
+            }
+            else{
+                console.log("res : ",res);
+            }
+        })
+    }
+    
     login(){
         // let that=this;
         
@@ -15,7 +26,7 @@ class Fblogin extends Component{
             if (response.authResponse) {
                 this.setState({auth:true,token:response.authResponse.accessToken});
              console.log('Welcome!  Fetching your information.... ');
-            
+                this.saveToken();
             } else {
              console.log('User cancelled login or did not fully authorize.');
             }

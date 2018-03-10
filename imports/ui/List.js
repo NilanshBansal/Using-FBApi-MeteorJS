@@ -15,7 +15,12 @@ export default List = (props) => {
     }
         return (
             // <ul>{renderListItems(data)}</ul>
-             <div className="container"><table className="table table-hover table-bordered"><thead><tr><th>Id</th><th>Page Name</th></tr></thead><tbody>{renderListItems(data)}</tbody></table></div>
+             <div className="container">
+                 <table className="table table-hover table-bordered">
+                     <thead><tr><th>Id</th><th>Page Name</th></tr></thead>
+                     <tbody>{renderListItems(data)}</tbody>
+                </table>
+            </div>
         )
     
 

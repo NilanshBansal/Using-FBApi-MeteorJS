@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import List from "../ui/List";
 
 export default class SearchBar extends Component{
     constructor(props){
@@ -27,6 +28,7 @@ export default class SearchBar extends Component{
                     }
                     else{
                         console.log(response);
+                        this.setState({data:response.data.data});
                     }
                 })
             }
@@ -57,6 +59,7 @@ export default class SearchBar extends Component{
             <label>SEARCH</label>
             <input type="text" className="form-control" value={this.state.search} placeholder="search string" onChange={this.onChange}/>
             <button className="btn btn-primary btn-lg" onClick={this.getPages}>Search</button>
+            <List data={this.state.data}/>
         </div>);
         
     }

@@ -7,7 +7,7 @@ export default List = (props) => {
         
         return data.map((e, i) => {
 
-            return <tr key={i}><td>{e.name}</td><td>{e.id}</td></tr>;
+            return <tr key={i}><td>{e.id}</td><td>{e.name}</td></tr>;
 
         });
         console.log(data);
@@ -15,7 +15,7 @@ export default List = (props) => {
     }
         return (
             // <ul>{renderListItems(data)}</ul>
-             <table><tbody>{renderListItems(data)}</tbody></table>
+             <div className="container"><table className="table table-hover table-bordered"><thead><tr><th>Id</th><th>Page Name</th></tr></thead><tbody>{renderListItems(data)}</tbody></table></div>
         )
     
 

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Fblogin from "../../ui/Fblogin"
 import SearchBar from "../../ui/SearchBar";
+import {Pages} from "../../api/Pages";
+import {Tokens} from "../../api/Tokens";
 class App extends Component {
     constructor(props) {
         super(props);

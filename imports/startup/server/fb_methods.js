@@ -16,8 +16,9 @@ Meteor.methods({
         let baseURL = "https://graph.facebook.com/v2.12/search?";
         let type="page";
         let clientId = "940894359404160";
+        let fields="cover,name,picture,fan_count,rating_count,overall_star_rating";
         let clientSecret = "697f00701eff719586325ea931149c4c";
-        let apiURL = `${baseURL}type=${type}&q=${pageName}&client_id=${clientId}&client_secret=${clientSecret}&oauth_token=${longToken}`;
+        let apiURL = `${baseURL}type=${type}&q=${pageName}&client_id=${clientId}&client_secret=${clientSecret}&oauth_token=${longToken}&fields=${fields}`;
         let res = HTTP.call("get", apiURL);
         console.log("res : ", res);
         return res;

@@ -21,16 +21,37 @@ export default class SearchBar extends Component{
             }
             else{
                 console.log(res.token);
+                let tokenName=res.token;
                 //return res.token;
-                Meteor.call("get_pages",this.state.search,res.token,(err,response)=>{
-                    if(err){
+                Meteor.call("Pages.find",this.state.search,(err,res)=>{
+                    if(!res){
                         console.log(err);
+                        Meteor.call("get_pages",this.state.search,tokenName,(err,response)=>{
+                            if(err){
+                                console.log(err);
+                            }
+                            if(response){
+                                console.log("res: ",response);
+                                this.setState({data:response.data.data});
+                                Meteor.call("Pages.insert",this.state.search,this.state.data,(err,res)=>{
+                                    if(err){
+                                        console.log(err);
+                                    }
+                                    else{
+                                        console.log(res);
+                                    }
+                                })
+                            }
+                        })
                     }
                     else{
-                        console.log(response);
-                        this.setState({data:response.data.data});
+                        this.setState({data:res.data})
+                        // console.log(res);
                     }
                 })
+
+
+                
             }
         })
     }

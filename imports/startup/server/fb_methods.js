@@ -9,7 +9,7 @@ Meteor.methods({
         let clientSecret = "697f00701eff719586325ea931149c4c";
         let apiURL = `${baseURL}${path}&client_id=${clientId}&client_secret=${clientSecret}&fb_exchange_token=${shortToken}`;
         let res = HTTP.call("get", apiURL);
-        console.log("res : ", res);
+        console.log("result : ", res);
         return res;
     },
     "get_pages"(pageName,longToken){

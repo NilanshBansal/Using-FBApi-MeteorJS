@@ -33,7 +33,7 @@ class Fblogin extends Component {
     login() {
         // let that=this;
 
-        FB.login(function (response) {
+        window.FB.login(function (response) {
 
             console.log(response);
             if (response.authResponse) {
@@ -43,15 +43,18 @@ class Fblogin extends Component {
             } else {
                 console.log('User cancelled login or did not fully authorize.');
             }
-        }.bind(this));
+        }.bind(this),{
+            scope: 'manage_pages, read_insights,instagram_basic,instagram_manage_insights',
+            return_scopes: true
+          });
     }
     logout() {
-        FB.logout(function (response) {
+        window.FB.logout(function (response) {
             console.log("Successfully logged out!");
         });
     }
     render() {
-        return (<div><button className="btn btn-lg btn-primary" onClick={this.login.bind(this)}>FB Login</button><button className="btn btn-lg btn-danger" onClick={this.logout}>FB Logout</button></div>)
+        return (<div><button className="btn btn-lg btn-primary" onClick={this.login.bind(this)}>FB Login</button><button className="btn btn-lg btn-danger" onClick={this.logout.bind(this)}>FB Logout</button></div>)
     }
 }
 
